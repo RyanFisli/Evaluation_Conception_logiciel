@@ -24,6 +24,13 @@ def Creer_Deck():
     return {"deck_id":id}
 
 @app.post("/cartes")
-def Tirer_Carte():
-    
+def Tirer_Carte(da:Tirage):
+    if (id == ""):
+        Creation_Deck()
+    requete = requests.get("https://deckofcardsapi.com/api/deck/"+id+"/draw/?count="+str(da.nombre_cartes))
+    json = requete.json()
+    if "error" in json:
+        res = {"deck_id": id, "cartes": json["cartes"], "error": json["error"]}
+    else:
+        res = {"deck_id": id, "cartes": json["cartes"]}
     return res
