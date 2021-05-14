@@ -9,11 +9,6 @@ def get_id():
 id = get_id().json()["deck_id"]
 print("id = ", id)
 
-nb_cartes = 10
-jeu = {"nombre_cartes": nb_cartes}
-requete = requests.post(url+"cartes",json=jeu)
-jeu_de_cartes = requete.json()
-
 def compte(jeu_cartes):
     H,S,D,C = 0,0,0,0
     for c in jeu_cartes["cartes"]:
@@ -27,4 +22,9 @@ def compte(jeu_cartes):
             C += 1
     return {"H" : H, "S" : S, "D" : D, "C" : C}
 
+
+nb_cartes = 10
+jeu = {"nombre_cartes": nb_cartes}
+requete = requests.post(url+"cartes",json=jeu)
+jeu_de_cartes = requete.json()
 print(compte(jeu_de_cartes))
