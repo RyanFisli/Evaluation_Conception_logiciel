@@ -1,9 +1,7 @@
 import requests
 import json
 
-from environnement import envi
-
-url = envi()
+url = "http://localhost:8000"
 
 def get_id():
     return requests.get(url+"/creer-un-deck/")
