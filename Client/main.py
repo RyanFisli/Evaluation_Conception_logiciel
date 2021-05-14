@@ -6,8 +6,7 @@ from environnement import envi
 url = envi()
 
 def get_id():
-    requete = requests.get(url+"/creer-un-deck/")
-    return requete
+    return requests.get(url+"/creer-un-deck/")
 
 id = get_id().json()["deck_id"]
 print("id = ", id)
