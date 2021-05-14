@@ -1,6 +1,5 @@
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
-
 import requests
 
 app = FastAPI()
@@ -23,7 +22,7 @@ def Creer_Deck():
     Creation_Deck()
     return {"deck_id":id}
 
-@app.post("/cartes")
+@app.post("/cartes/{nombre_cartes}")
 def Tirer_Carte(da:Tirage):
     if (id == ""):
         Creation_Deck()
