@@ -22,3 +22,8 @@ def readRoot():
 def Creer_Deck():
     Creation_Deck()
     return {"deck_id":id}
+
+@app.post("/cartes")
+def Tirer_Carte():
+    
+    return res
