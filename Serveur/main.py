@@ -2,6 +2,8 @@ from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 import requests
 
+from tirage import Tirage
+
 app = FastAPI()
 
 id = ""
@@ -23,10 +25,10 @@ def Creer_Deck():
     return {"deck_id":id}
 
 @app.post("/cartes/{nombre_cartes}")
-def Tirer_Carte(da:Tirage):
+def Tirer_Carte(tir:Tirage):
     if (id == ""):
         Creation_Deck()
-    requete = requests.get("https://deckofcardsapi.com/api/deck/"+id+"/draw/?count="+str(da.nombre_cartes))
+    requete = requests.get("https://deckofcardsapi.com/api/deck/"+id+"/draw/?count="+str(tir.nombre_cartes))
     json = requete.json()
     if "error" in json:
         res = {"deck_id": id, "cartes": json["cartes"], "error": json["error"]}
