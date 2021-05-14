@@ -20,7 +20,7 @@ def compte(jeu_cartes):
             D += 1
         elif c["suit"] == "CLUBS":
             C += 1
-    return {"H" : H, "S" : S, "D" : D, "C" : C}
+    return {"H": H, "S": S, "D": D, "C": C}
 
 
 nb_cartes = 10
